@@ -1,36 +1,72 @@
-# Flight Price Prediction
-This project aims to predict flight ticket prices based on historical data. It uses machine learning (ML) to build a model that can predict prices of upcoming flights given other relevant details.
+Flight Price Prediction
 
-## Overview
-- `data_exploration.ipynb` - Explores and visualizes the flight price dataset to gain insights 
-- `model_building.ipynb` - Trains ML models to predict flight prices based on details like airline, source location, destination location, dates of travel etc. Evaluates performance of models
-- `app.py` - Simple Flask web app to get flight price predictions from trained ML model based on user inputs
+A machine learning project designed to predict flight ticket prices based on historical data and flight details. This project builds and deploys a predictive model, offering users an intuitive web interface for obtaining price estimates.
 
-## Usage
-The trained flight price predictor model is served through a simple web interface built in Flask.
+Overview
 
-### Dependencies
-- Python 3, NumPy, Pandas, Scikit-Learn, XGBoost, Flask
-- See `requirements.txt` for all dependencies 
+Project Highlights
+	•	Data Exploration: Analyze and visualize flight price datasets to uncover patterns and insights.
+	•	Model Building: Train machine learning models using features like airline, source, destination, journey dates, and departure times to predict flight prices. Evaluate and compare model performance.
+	•	Web Application: Deploy the trained model via a simple Flask web app, enabling users to interact and obtain predictions effortlessly.
 
-### Running Web App
-```
+Repository Structure
+	•	data_exploration.ipynb: Notebook for dataset analysis and visualization.
+	•	model_building.ipynb: Notebook for training and evaluating machine learning models.
+	•	app.py: Flask application that serves predictions from the trained model.
+
+Features
+	•	Interactive Web Interface: Enter flight details (e.g., airline, source, destination, journey date) to get price predictions.
+	•	Customizable Inputs: Tune predictions with optional additional flight details.
+	•	Accurate Modeling: Leverages advanced machine learning techniques for reliable price estimates.
+
+Dependencies
+
+This project uses the following libraries:
+	•	Python 3
+	•	NumPy
+	•	Pandas
+	•	Scikit-Learn
+	•	XGBoost
+	•	Flask
+
+Refer to requirements.txt for a complete list of dependencies.
+
+Usage
+
+Running the Web Application
+	1.	Clone the repository and navigate to the project directory.
+	2.	Install dependencies:
+
+$ pip install -r requirements.txt
+
+
+	3.	Start the Flask web app:
+
 $ python app.py
-```
-The app will be served at `http://localhost:5000`
 
-Enter relevant flight details like airlines, source, destination etc. and the predicted flight price will be displayed. At least the following fields need to be provided for an accurate price estimate:
-* Airline
-* Source 
-* Destination
-* Journey Date
-* Departure Time
 
-There are additional options to further tune the prediction if more flight details are known.
+	4.	Open the application in your browser at http://localhost:5000.
 
-## Contributors
-Contributions to improve model accuracy, add features or fix bugs are welcome!
+Input Fields
 
-- Taaran Jain
+Provide the following mandatory details for accurate predictions:
+	•	Airline
+	•	Source
+	•	Destination
+	•	Journey Date
+	•	Departure Time
 
-Let me know if you need any changes or have additional sections that you would like covered in the README!
+Additional flight details can further enhance prediction accuracy.
+
+Contribution
+
+Contributions are welcome! You can help improve:
+	•	Model accuracy and feature selection.
+	•	User interface of the web app.
+	•	Bug fixes and documentation enhancements.
+
+Author
+
+Developed by Taaran Jain.
+
+Feel free to submit issues or pull requests to collaborate on this project.
