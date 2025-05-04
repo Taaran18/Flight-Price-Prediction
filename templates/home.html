@@ -1,80 +1,77 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flight Price Prediction</title>
 
-    <!-- BootStrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Price Prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
 
-    <!-- css -->
-    <link rel="stylesheet" href="static/css/styles.css" />
-  </head>
+<body>
+  <div class="stars"></div>
+  <div class="twinkling"></div>
 
-  <body>
-    <!-- As a heading -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">FLIGHT PRICE PREDICTION</a>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <span class="navbar-brand">
+        <div class="logo-container">
+          <i class="fas fa-plane-departure"></i>
+          <div class="logo-trail"></div>
         </div>
+        Flight Price Prediction
+      </span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="prediction-card">
+      <div class="card-header">
+        <div class="plane-animation">
+          <i class="fas fa-plane"></i>
+        </div>
+        <h2>Predict Your Flight Price</h2>
+        <p class="subtitle">Find the best prices for your journey</p>
       </div>
-    </nav>
 
-    <br /><br /><br />
-
-    <div class="container">
-      <form action="\predict" method="post">
+      <form action="/predict" method="post" class="floating-labels">
         <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Departure Date</h5>
-                <!-- Departure -->
-                <input
-                  type="datetime-local"
-                  name="Dep_Time"
-                  id="Dep_Time"
-                  required="required"
-                />
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="datetime-local" class="form-control custom-input" name="Dep_Time" required>
+                <label>Departure Date</label>
               </div>
             </div>
           </div>
-          <br />
-          <br />
-          <br />
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Arrival Date</h5>
-                <!-- Arrival -->
-                <input
-                  type="datetime-local"
-                  name="Arrival_Time"
-                  id="Arrival_Time"
-                  required="required"
-                />
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-calendar-check"></i>
+                <input type="datetime-local" class="form-control custom-input" name="Arrival_Time" required>
+                <label>Arrival Date</label>
               </div>
             </div>
           </div>
         </div>
 
-        <br />
-        <br />
-        <br />
+        <div class="journey-line">
+          <div class="dot start"></div>
+          <div class="line"></div>
+          <div class="dot end"></div>
+        </div>
 
         <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <!-- Source -->
-                <h5 class="card-title">Source</h5>
-                <select name="Source" id="Source" required="required">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-plane-departure"></i>
+                <select class="form-control custom-select" name="Source" required>
+                  <option value="" disabled selected>Select Source</option>
                   <option value="Delhi">Delhi</option>
                   <option value="Kolkata">Kolkata</option>
                   <option value="Mumbai">Mumbai</option>
@@ -83,12 +80,12 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Destination</h5>
-                <!-- Destination -->
-                <select name="Destination" id="Destination" required="required">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-plane-arrival"></i>
+                <select class="form-control custom-select" name="Destination" required>
+                  <option value="" disabled selected>Select Destination</option>
                   <option value="Cochin">Cochin</option>
                   <option value="Delhi">Delhi</option>
                   <option value="New Delhi">New Delhi</option>
@@ -100,86 +97,61 @@
           </div>
         </div>
 
-        <br />
-        <br />
-        <br />
-
         <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Stopage</h5>
-                <!-- Total Stops -->
-                <select name="stops" required="required">
-                  <option value="0">Non-Stop</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Airline Choice?</h5>
-                <!-- Airline -->
-                <select name="airline" id="airline" required="required">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-plane"></i>
+                <select class="form-control custom-select" name="airline" required>
+                  <option value="" disabled selected>Select Airline</option>
                   <option value="Jet Airways">Jet Airways</option>
                   <option value="IndiGo">IndiGo</option>
                   <option value="Air India">Air India</option>
                   <option value="Multiple carriers">Multiple carriers</option>
                   <option value="SpiceJet">SpiceJet</option>
                   <option value="Vistara">Vistara</option>
-                  <option value="Air Asia">Air Asia</option>
                   <option value="GoAir">GoAir</option>
-                  <option value="Multiple carriers Premium economy">
-                    Multiple carriers Premium economy
-                  </option>
-                  <option value="Jet Airways Business">
-                    Jet Airways Business
-                  </option>
-                  <option value="Vistara Premium economy">
-                    Vistara Premium economy
-                  </option>
-                  <option value="Trujet">Trujet</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fas fa-stopwatch"></i>
+                <select class="form-control custom-select" name="stops" required>
+                  <option value="" disabled selected>Select Stops</option>
+                  <option value="0">Non-Stop</option>
+                  <option value="1">1 Stop</option>
+                  <option value="2">2 Stops</option>
+                  <option value="3">3 Stops</option>
+                  <option value="4">4 Stops</option>
                 </select>
               </div>
             </div>
           </div>
         </div>
 
-        <br />
-        <br />
-        <br />
-        <!-- Submit -->
-        <input type="submit" value="Submit" class="btn btn-secondary" />
+        <button type="submit" class="btn btn-predict">
+          <span>Predict Price</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </form>
 
-      <br />
-      <br />
-      <h3>{{ prediction_text }}</h3>
-
-      <br />
-      <br />
+      {% if prediction_text %}
+      <div class="price-display">
+        <div class="price-card">
+          <div class="price-header">Predicted Price</div>
+          <div class="price-amount">
+            <i class="fas fa-rupee-sign"></i>
+            <span>{{ prediction_text }}</span>
+          </div>
+          <div class="price-footer">Estimated fare based on historical data</div>
+        </div>
+      </div>
+      {% endif %}
     </div>
+  </div>
+</body>
 
-    <!-- JavaScript -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>
